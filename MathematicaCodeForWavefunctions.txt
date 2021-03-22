@@ -1,0 +1,53 @@
+\setminus[Alpha] |5/2>- \setminus[Beta] |-3/2>
+This can be re-written as:
+\setminus[Alpha] (Sqrt[6/7]|3,3,1/2,-1/2> -Sqrt[(1/7)]|3,2,1/2,+1/2>) - \setminus[Beta]( Sqrt[2/7]|3,-1,1/2,-1/2> -Sqrt[(5/7)]|3,-2,1/2,+1/2>  )
+
+Now if we take the overlap with spin up:   -Sqrt[(1/7)]\setminus[Alpha] Y[3,2]  +Sqrt[5/7]\setminus[Beta] Y[3,-2]  and with spin-down: Sqrt[6/7]\setminus[Alpha]Y[3,3]-Sqrt[2/7]\setminus[Beta] Y[3,-1]
+B=0T (B//c)
+
+\setminus[Psi]1 = -Sqrt[(1/7)] Sqrt[0.596] *
+   SphericalHarmonicY[3, 2, \setminus[Theta], \setminus[Phi]] + 
+  Sqrt[5/7] Sqrt[0.404]*SphericalHarmonicY[3, -2, \setminus[Theta], \setminus[Phi]]
+\setminus[Psi]2 = 
+ Sqrt[6/7]*Sqrt[0.596]*SphericalHarmonicY[3, 3, \setminus[Theta], \setminus[Phi]] - 
+  Sqrt[2/7]*Sqrt[0.404]* SphericalHarmonicY[3, -1, \setminus[Theta], \setminus[Phi]]
+\setminus[Psi]3 = -Sqrt[(1/7)] Sqrt[0.596] *
+   SphericalHarmonicY[3, -2, \setminus[Theta], \setminus[Phi]] + 
+  Sqrt[5/7] Sqrt[0.404]*SphericalHarmonicY[3, 2, \setminus[Theta], \setminus[Phi]]
+\setminus[Psi]4 = 
+ Sqrt[6/7] Sqrt[0.596] *SphericalHarmonicY[3, -3, \setminus[Theta], \setminus[Phi]] - 
+  Sqrt[2/7] Sqrt[0.404]*SphericalHarmonicY[3, 1, \setminus[Theta], \setminus[Phi]]
+
+SphericalPlot3D[
+ Conjugate[\setminus[Psi]1]*\setminus[Psi]1 /. {\setminus[Alpha] -> 0.46}, {\setminus[Theta], 0, 
+  Pi}, {\setminus[Phi], 0, 2 Pi}, PlotRange -> All]
+SphericalPlot3D[
+ Conjugate[\setminus[Psi]2]*\setminus[Psi]2 /. {\setminus[Alpha] -> 0.46}, {\setminus[Theta], 0, 
+  Pi}, {\setminus[Phi], 0, 2 Pi}, PlotRange -> All]
+SphericalPlot3D[
+ Conjugate[\setminus[Psi]3]*\setminus[Psi]3 /. {\setminus[Alpha] -> 0.46}, {\setminus[Theta], 0, 
+  Pi}, {\setminus[Phi], 0, 2 Pi}, PlotRange -> All]
+SphericalPlot3D[
+ Conjugate[\setminus[Psi]4]*\setminus[Psi]4 /. {\setminus[Alpha] -> 0.46}, {\setminus[Theta], 0, 
+  Pi}, {\setminus[Phi], 0, 2 Pi}, PlotRange -> All]
+
+SphericalPlot3D[
+ Conjugate[\setminus[Psi]2]*\setminus[Psi]2 + Conjugate[\setminus[Psi]1]*\setminus[Psi]1 + 
+   Conjugate[\setminus[Psi]3]*\setminus[Psi]3 + 
+   Conjugate[\setminus[Psi]4]*\setminus[Psi]4 /. {\setminus[Alpha] -> 
+    Sqrt[0.2116]}, {\setminus[Theta], 0, Pi}, {\setminus[Phi], 0, 2 Pi}, 
+ PlotRange -> All]
+
+SphericalPlot3D[
+ Conjugate[\setminus[Psi]2]*\setminus[Psi]2 + Conjugate[\setminus[Psi]1]*\setminus[Psi]1 + 
+   Conjugate[\setminus[Psi]3]*\setminus[Psi]3 + 
+   Conjugate[\setminus[Psi]4]*\setminus[Psi]4 /. {\setminus[Alpha] -> Sqrt[
+    0.2116]}, {\setminus[Theta], 0, \setminus[Pi]}, {\setminus[Phi], 0, 2 \setminus[Pi]}, 
+ PlotStyle -> RGBColor[1., 0.61, 0.68], PlotRange -> All]
+
+Manipulate[
+ SphericalPlot3D[
+  Conjugate[\setminus[Psi]2]*\setminus[Psi]2 + 
+    Conjugate[\setminus[Psi]1]*\setminus[Psi]1 /. {\setminus[Alpha] -> x}, {\setminus[Theta], 0, 
+   Pi}, {\setminus[Phi], 0, 2 Pi}, PlotRange -> All], {x, 0, 01}]
+
